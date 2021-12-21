@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAC;EACR,UAAU,EAAE,IAAI;CAKjB;;AAND,AAEE,SAFO,CAEP,CAAC,CAAC;EACA,UAAU,EAAE,MAAM;EAClB,MAAM,EAAE,MAAM;CACf",
+    "sources": [
+        "../sass/listnote.scss"
+    ],
+    "names": [],
+    "file": "listnote.css"
+}

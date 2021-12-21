@@ -1,0 +1,151 @@
+.shownote {
+  display: none;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.shownote .showbox {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.shownote.aktif {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 100%;
+  visibility: visible;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.shownote.aktif .showbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  opacity: 100%;
+  visibility: visible;
+  border-radius: 20px;
+  width: 322px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  min-height: 470px;
+  background-color: white;
+}
+
+.shownote.aktif .showbox .atas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.shownote.aktif .showbox .atas h1 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 1rem;
+}
+
+.shownote.aktif .showbox .atas img {
+  cursor: pointer;
+  margin: 20px;
+  width: 32px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+}
+
+.shownote.aktif .showbox .atas img:hover {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.shownote.aktif .showbox form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 1rem;
+  width: 100%;
+}
+
+.shownote.aktif .showbox form textarea {
+  resize: none;
+  border: none;
+  margin-right: 2rem;
+  width: 100%;
+  height: 20rem;
+  font-size: 14px;
+}
+
+.shownote.aktif .showbox form textarea:focus {
+  outline: none;
+}
+
+.shownote.aktif .showbox p {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.shownote.aktif .showbox .btn {
+  margin: 0 4rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (min-width: 1020px) {
+  .shownote.aktif .showbox {
+    width: 700px;
+    min-height: 500px;
+  }
+  .shownote.aktif .showbox form textarea {
+    resize: none;
+    border: none;
+    margin-right: 2rem;
+    width: 100%;
+    height: 22rem;
+    font-size: 14px;
+  }
+  .shownote.aktif .showbox form textarea:focus {
+    outline: none;
+  }
+  .shownote.aktif .showbox .btn {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .shownote.aktif .showbox .btn :first-child {
+    margin-right: 10px;
+  }
+}
+/*# sourceMappingURL=shownote.css.map */

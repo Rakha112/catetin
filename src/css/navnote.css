@@ -1,0 +1,120 @@
+.navnote {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 40px;
+}
+
+.navnote .logo {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navnote .logo img {
+  margin-right: 5px;
+  width: 20.65px;
+}
+
+.navnote .logo h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.navnote .user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.navnote .user h1 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+.navnote .user img {
+  width: 25px;
+}
+
+.navnote .user .logout {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: all 0.5 ease;
+  transition: all 0.5 ease;
+}
+
+.navnote .user .logout.aktif {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 1;
+  visibility: visible;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 1020px) {
+  .navnote .user .logout.aktif {
+    width: 100%;
+    background-color: unset;
+    opacity: 1;
+    visibility: visible;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: fixed;
+    top: 55px;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
+.navnote .user .logout.aktif .savebtn {
+  margin-bottom: 1rem;
+}
+
+.navnote .user .logout.aktif .savebtn button {
+  font-size: 14px;
+}
+/*# sourceMappingURL=navnote.css.map */

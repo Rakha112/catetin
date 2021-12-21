@@ -1,0 +1,51 @@
+.notelist {
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f4f6f8;
+  border-radius: 20px;
+  margin-top: 1rem;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.notelist .logo {
+  border-radius: 20px;
+  width: 60px;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #e6ecfc;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.notelist .logo img {
+  width: 40px;
+}
+
+.notelist h1 {
+  margin-left: 1rem;
+  font-size: 20px;
+}
+
+.notelist:hover {
+  background-color: #e7edf3;
+}
+
+.notelist:hover .logo {
+  background-color: #d1d9f1;
+}
+/*# sourceMappingURL=notelist.css.map */

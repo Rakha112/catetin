@@ -1,0 +1,160 @@
+.landingpage {
+  .page {
+    .ilustrasi {
+      opacity: 0;
+      img {
+        width: 100%;
+        padding: 40px;
+      }
+    }
+    .isi_lp {
+      h1 {
+        opacity: 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 40px;
+      }
+      p {
+        opacity: 0;
+        font-size: 14px;
+        text-align: center;
+        padding: 20px 40px 20px 40px;
+        font-weight: 400;
+        line-height: 1.75;
+      }
+      .tombol {
+        opacity: 0;
+        padding: 20px 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+}
+@media screen and (min-width: 750px) {
+  .landingpage {
+    .page {
+      margin: 0 5rem;
+      .ilustrasi {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 70%;
+          padding: 40px;
+        }
+      }
+      .isi_lp {
+        h1 {
+          text-align: center;
+          font-weight: 500;
+          font-size: 60px;
+        }
+        p {
+          font-size: 19px;
+          text-align: center;
+          padding: 20px 40px 20px 40px;
+          font-weight: 400;
+          line-height: 1.75;
+        }
+        .tombol {
+          padding: 20px 60px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1020px) {
+  .landingpage {
+    margin: auto;
+    height: 100vh;
+    .page {
+      margin-top: 3rem;
+      margin-left: 7rem;
+      margin-right: 2rem;
+      max-width: 1380px;
+      display: flex;
+      flex-direction: row-reverse;
+      .ilustrasi {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 75%;
+        }
+      }
+      .isi_lp {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h1 {
+          text-align: left;
+          font-size: 64px;
+        }
+        p {
+          padding-left: 0;
+          text-align: justify;
+          font-size: 20px;
+        }
+        .tombol {
+          padding: 0;
+        }
+      }
+      .ilustrasi {
+        flex: 1.5;
+      }
+    }
+  }
+}
+@media screen and (min-width: 1380px) {
+  .landingpage {
+    max-width: 1380px;
+    margin: auto;
+
+    .page {
+      margin-top: 6rem;
+      margin-left: 5rem;
+      margin-right: 5rem;
+      max-width: 1380px;
+      display: flex;
+      flex-direction: row-reverse;
+      .ilustrasi {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 90%;
+        }
+      }
+      .isi_lp {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h1 {
+          text-align: left;
+          font-size: 64px;
+        }
+        p {
+          padding-left: 0;
+          text-align: justify;
+          font-size: 20px;
+        }
+        .tombol {
+          padding: 0;
+        }
+      }
+      .ilustrasi {
+        flex: 1.5;
+      }
+    }
+  }
+}

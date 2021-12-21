@@ -1,0 +1,36 @@
+.loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: "Poppins", sans-serif;
+  width: 100vw;
+  height: 100vh;
+}
+
+.loading img {
+  width: 15%;
+  margin-right: 1rem;
+}
+
+.loading h1 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 1020px) {
+  .loading img {
+    width: 5%;
+    margin-right: 1rem;
+  }
+  .loading h1 {
+    font-size: 5rem;
+    font-weight: 500;
+  }
+}
+/*# sourceMappingURL=loading.css.map */

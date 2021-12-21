@@ -1,0 +1,29 @@
+.newnote {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  button {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: #d1e8fc;
+    border-radius: 20px;
+    border: none;
+    transition: all 0.5s ease;
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 30px;
+      }
+    }
+  }
+  button:hover {
+    background-color: #add7fc;
+  }
+}

@@ -1,0 +1,34 @@
+.note_container .note {
+  margin: auto;
+  padding: 0 40px;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.note_container .bg {
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.note_container .bg.aktif {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: black;
+  opacity: 50%;
+  visibility: visible;
+}
+
+.note_container.aktif {
+  overflow: hidden;
+}
+
+@media screen and (min-width: 1020px) {
+  .note {
+    max-width: 1380px;
+  }
+}
+/*# sourceMappingURL=note.css.map */

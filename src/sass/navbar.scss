@@ -1,0 +1,58 @@
+.navbar {
+  .navbar_mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 40px 0px 40px;
+    .logo {
+      cursor: pointer;
+      img {
+        margin-right: 5px;
+        width: 20.65px;
+      }
+      h1 {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        font-weight: 500;
+      }
+      display: flex;
+    }
+  }
+  .navbar_laptop {
+    display: none;
+  }
+  @media screen and (min-width: 1020px) {
+    .navbar_mobile {
+      display: none;
+      visibility: hidden;
+    }
+    .navbar_laptop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 40px 0px 40px;
+      .logo {
+        img {
+          cursor: pointer;
+          margin-right: 5px;
+          width: 7%;
+        }
+        h1 {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          font-size: 24spx;
+          font-weight: 500;
+        }
+        display: flex;
+      }
+      .btn_nav {
+        display: flex;
+        .login {
+          margin-right: 2rem;
+        }
+      }
+    }
+  }
+}

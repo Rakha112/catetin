@@ -1,0 +1,76 @@
+.navnote {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  .logo {
+    cursor: pointer;
+    img {
+      margin-right: 5px;
+      width: 20.65px;
+    }
+    h1 {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    display: flex;
+  }
+  .user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    h1 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-right: 5px;
+    }
+    img {
+      width: 25px;
+    }
+    .logout {
+      opacity: 0;
+      visibility: hidden;
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.5 ease;
+    }
+    .logout.aktif {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+      visibility: visible;
+      width: 100%;
+      background-color: white;
+      display: flex;
+      position: fixed;
+      top: 100px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @media screen and (min-width: 1020px) {
+        width: 100%;
+        background-color: unset;
+        opacity: 1;
+        visibility: visible;
+        display: flex;
+        position: fixed;
+        top: 55px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .savebtn {
+        margin-bottom: 1rem;
+        button {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

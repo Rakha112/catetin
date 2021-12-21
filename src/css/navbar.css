@@ -1,0 +1,88 @@
+.navbar .navbar_mobile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 40px 40px 0px 40px;
+}
+
+.navbar .navbar_mobile .logo {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navbar .navbar_mobile .logo img {
+  margin-right: 5px;
+  width: 20.65px;
+}
+
+.navbar .navbar_mobile .logo h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.navbar .navbar_laptop {
+  display: none;
+}
+
+@media screen and (min-width: 1020px) {
+  .navbar .navbar_mobile {
+    display: none;
+    visibility: hidden;
+  }
+  .navbar .navbar_laptop {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 40px 40px 0px 40px;
+  }
+  .navbar .navbar_laptop .logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .navbar .navbar_laptop .logo img {
+    cursor: pointer;
+    margin-right: 5px;
+    width: 7%;
+  }
+  .navbar .navbar_laptop .logo h1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    cursor: pointer;
+    font-size: 24spx;
+    font-weight: 500;
+  }
+  .navbar .navbar_laptop .btn_nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .navbar .navbar_laptop .btn_nav .login {
+    margin-right: 2rem;
+  }
+}
+/*# sourceMappingURL=navbar.css.map */
