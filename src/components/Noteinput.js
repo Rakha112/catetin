@@ -11,7 +11,6 @@ const NoteInput = ({ aktifN, klikN, user }) => {
   const [isi, setIsi] = useState("");
   const [open, setOpen] = useState(false);
   const [alert, setAlert] = useState(false);
-  console.log(alert);
   axios.defaults.withCredentials = true;
   useEffect(() => {
     let timer1 = setTimeout(() => setAlert(false), 5000);
@@ -22,17 +21,21 @@ const NoteInput = ({ aktifN, klikN, user }) => {
     };
   }, [alert]);
   const submit = () => {
-    if (judul !== "") {
+    if (judul.length > 0) {
       axios.post("https://catetinnote.herokuapp.com/note/insert", {
         judul: judul,
         isi: isi,
         user: user,
       });
+      setOpen(false);
+      setAlert(false);
       klikN();
       setTimeout(() => {
+        setOpen(false);
+        setAlert(false);
         setJudul("");
         setIsi("");
-      }, 1000);
+      }, 500);
     }
     setAlert(true);
     setOpen(true);
