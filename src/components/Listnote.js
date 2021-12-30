@@ -3,7 +3,7 @@ import Notelist from "./Notelist";
 import axios from "axios";
 import { connect } from "react-redux";
 import "../css/listnote.css";
-const Listnote = ({ username, aktifN, load, loading, edit, deleted }) => {
+const Listnote = ({ username, aktifN, load, loading, edit, deleted, klik }) => {
   const [dataNote, setDataNote] = useState([]);
   useEffect(() => {
     setTimeout(() => {
@@ -18,7 +18,7 @@ const Listnote = ({ username, aktifN, load, loading, edit, deleted }) => {
         });
       loading();
     }, 500);
-  }, [loading, username, aktifN, edit, deleted]);
+  }, [loading, username, aktifN, edit, deleted, klik]);
   if (dataNote.length === 0) {
     return (
       <div className="listnote">
@@ -51,6 +51,7 @@ const mapStateToProps = (state) => {
     judul: state.judul,
     edit: state.edit,
     deleted: state.delete,
+    klik: state.aktifN,
   };
 };
 
