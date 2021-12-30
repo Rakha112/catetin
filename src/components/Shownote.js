@@ -18,13 +18,14 @@ const Shownote = ({
   status,
   tglbuat,
   tgledit,
+  update,
 }) => {
   const [editIsi, setEditIsi] = useState("");
   const [setIsi, setSetIsi] = useState([]);
 
   useEffect(() => {
-    setTimeout(() => {
-      axios
+    async function getIsiData() {
+      await axios
         .get("https://catetinnote.herokuapp.com/note/isi", {
           params: {
             user: user,
@@ -34,18 +35,24 @@ const Shownote = ({
         .then((result) => {
           setSetIsi(result.data);
         });
-    }, 500);
+    }
+    getIsiData();
     setSetIsi([]);
     setEditIsi(isi.isi);
   }, [edit, isi.isi, user, judul]);
 
   axios.defaults.withCredentials = true;
   const saveFunc = () => {
-    axios.put("https://catetinnote.herokuapp.com/note/update", {
-      judul: judul.judul,
-      isi: editIsi,
-      user: user,
-    });
+    async function updateData() {
+      await axios
+        .put("https://catetinnote.herokuapp.com/note/update", {
+          judul: judul.judul,
+          isi: editIsi,
+          user: user,
+        })
+        .then(() => update());
+    }
+    updateData();
     klikE();
     kliksave();
     klikS();
@@ -56,17 +63,20 @@ const Shownote = ({
     klikE();
   };
   const deleteFunc = () => {
-    axios
-      .delete("https://catetinnote.herokuapp.com/note/delete", {
-        data: {
-          judul: judul.judul,
-          isi: editIsi,
-          user: user,
-        },
-      })
-      .then((response) => {
-        klikD();
-      });
+    async function deleteData() {
+      await axios
+        .delete("https://catetinnote.herokuapp.com/note/delete", {
+          data: {
+            judul: judul.judul,
+            isi: editIsi,
+            user: user,
+          },
+        })
+        .then(() => {
+          klikD();
+        });
+    }
+    deleteData();
     klikS();
     klikD();
   };
@@ -134,6 +144,7 @@ const mapDispatchToProps = (dispatch) => {
     klikE: () => dispatch({ type: "ISEDIT" }),
     klikD: () => dispatch({ type: "ISDELETE" }),
     kliksave: () => dispatch({ type: "ISSAVE" }),
+    update: () => dispatch({ type: "ISUPDATE" }),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Shownote);

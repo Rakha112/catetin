@@ -21,6 +21,8 @@ const initialState = {
   edit: false,
   delete: false,
   save: true,
+  insert: false,
+  update: false,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -108,6 +110,18 @@ const rootReducer = (state = initialState, action) => {
     return {
       ...state,
       delete: !state.delete,
+    };
+  }
+  if (action.type === "ISINSERT") {
+    return {
+      ...state,
+      insert: !state.insert,
+    };
+  }
+  if (action.type === "ISUPDATE") {
+    return {
+      ...state,
+      update: !state.update,
     };
   }
   return state;

@@ -3,22 +3,34 @@ import Notelist from "./Notelist";
 import axios from "axios";
 import { connect } from "react-redux";
 import "../css/listnote.css";
-const Listnote = ({ username, aktifN, load, loading, edit, deleted, klik }) => {
+const Listnote = ({
+  username,
+  aktifN,
+  loading,
+  edit,
+  deleted,
+  insert,
+  update,
+}) => {
   const [dataNote, setDataNote] = useState([]);
   useEffect(() => {
-    setTimeout(() => {
-      axios
-        .get("https://catetinnote.herokuapp.com/note", {
+    async function fetchData() {
+      const request = await axios.get(
+        "https://catetinnote.herokuapp.com/note",
+        {
           params: {
             user: username,
           },
-        })
-        .then((result) => {
-          setDataNote(result.data);
-        });
-      loading();
-    }, 1000);
-  }, [loading, username, aktifN, edit, deleted]);
+        }
+      );
+      console.log(request.data);
+      setDataNote(request.data);
+      return request.data;
+    }
+    loading();
+    fetchData();
+  }, [loading, username, aktifN, edit, deleted, insert, update]);
+
   if (dataNote.length === 0) {
     return (
       <div className="listnote">
@@ -52,6 +64,8 @@ const mapStateToProps = (state) => {
     edit: state.edit,
     deleted: state.delete,
     klik: state.aktifN,
+    insert: state.insert,
+    update: state.update,
   };
 };
 

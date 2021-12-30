@@ -6,12 +6,21 @@ import Savebtn from "./Btn";
 import axios from "axios";
 import Alert from "@mui/material/Alert";
 import Fade from "@mui/material/Fade";
-const NoteInput = ({ aktifN, klikN, user }) => {
+const NoteInput = ({ aktifN, klikN, user, insert }) => {
   const [judul, setJudul] = useState("");
   const [isi, setIsi] = useState("");
   const [open, setOpen] = useState(false);
   const [alert, setAlert] = useState(false);
   axios.defaults.withCredentials = true;
+  async function insertData() {
+    await axios
+      .post("https://catetinnote.herokuapp.com/note/insert", {
+        judul: judul,
+        isi: isi,
+        user: user,
+      })
+      .then(() => insert());
+  }
   useEffect(() => {
     let timer1 = setTimeout(() => setAlert(false), 5000);
     let timer2 = setTimeout(() => setOpen(false), 4000);
@@ -22,11 +31,7 @@ const NoteInput = ({ aktifN, klikN, user }) => {
   }, [alert]);
   const submit = () => {
     if (judul.length > 0) {
-      axios.post("https://catetinnote.herokuapp.com/note/insert", {
-        judul: judul,
-        isi: isi,
-        user: user,
-      });
+      insertData();
       setOpen(false);
       setAlert(false);
       klikN();
@@ -90,6 +95,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     klikN: () => dispatch({ type: "ISNOTE" }),
+    insert: () => dispatch({ type: "ISINSERT" }),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(NoteInput);
