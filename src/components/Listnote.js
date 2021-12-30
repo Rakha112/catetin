@@ -17,8 +17,8 @@ const Listnote = ({ username, aktifN, load, loading, edit, deleted, klik }) => {
           setDataNote(result.data);
         });
       loading();
-    }, 500);
-  }, [loading, username, aktifN, edit, deleted, klik]);
+    }, 1000);
+  }, [loading, username, aktifN, edit, deleted]);
   if (dataNote.length === 0) {
     return (
       <div className="listnote">
