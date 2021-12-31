@@ -79,6 +79,7 @@
 
 .signuppage.aktif .signupbox p span {
   cursor: pointer;
+  font-weight: 700;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
