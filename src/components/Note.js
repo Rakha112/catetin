@@ -50,7 +50,15 @@ const Note = ({ klik, aktifLG, aktifN, klikN, load, show }) => {
   // If page is not in loading state, display page.
   else {
     return (
-      <div className={aktifN ? "note_container aktif" : "note_container"}>
+      <div
+        className={
+          aktifN
+            ? "note_container aktif"
+            : show
+            ? "note_container aktif"
+            : "note_container"
+        }
+      >
         <div className="note">
           <Navnote user={capitalizeFirstLetter(username)} />
           <Listnote username={username} aktifN={aktifN} />
