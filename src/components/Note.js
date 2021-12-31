@@ -19,9 +19,8 @@ const Note = ({ klik, aktifLG, aktifN, klikN, load, show }) => {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    let unmounted = false;
-    if (!unmounted) {
-      axios
+    async function profile() {
+      await axios
         .get("https://catetinnote.herokuapp.com/profile")
         .then((response) => {
           if (response.data.loggedIn === true) {
@@ -41,10 +40,7 @@ const Note = ({ klik, aktifLG, aktifN, klikN, load, show }) => {
           }
         });
     }
-
-    return () => {
-      unmounted = true;
-    };
+    profile();
   }, [klik, navigate]);
 
   if (loading) {

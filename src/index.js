@@ -23,6 +23,8 @@ const initialState = {
   save: true,
   insert: false,
   update: false,
+  loading: true,
+  dataawal: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -122,6 +124,18 @@ const rootReducer = (state = initialState, action) => {
     return {
       ...state,
       update: !state.update,
+    };
+  }
+  if (action.type === "ISLOADING") {
+    return {
+      ...state,
+      loading: false,
+    };
+  }
+  if (action.type === "DATAAWAL") {
+    return {
+      ...state,
+      dataawal: action.payload,
     };
   }
   return state;

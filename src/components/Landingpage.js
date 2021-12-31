@@ -19,18 +19,16 @@ const Landingpage = ({ aktifLG, aktifSG }) => {
   axios.defaults.withCredentials = true;
   const navigate = useNavigate();
   useEffect(() => {
-    let unmounted = false;
-    axios.get("https://catetinnote.herokuapp.com/profile").then((response) => {
-      if (!unmounted) {
-        if (response.data.loggedIn === true) {
-          navigate(`note/${response.data.username}`);
-        }
-      }
-    });
-
-    return () => {
-      unmounted = true;
-    };
+    async function profile() {
+      await axios
+        .get("https://catetinnote.herokuapp.com/profile")
+        .then((response) => {
+          if (response.data.loggedIn === true) {
+            navigate(`note/${response.data.username}`);
+          }
+        });
+    }
+    profile();
   }, [navigate]);
 
   useEffect(() => {

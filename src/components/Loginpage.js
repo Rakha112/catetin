@@ -8,7 +8,7 @@ import Alert from "@mui/material/Alert";
 import Fade from "@mui/material/Fade";
 import { useNavigate } from "react-router-dom";
 
-const Loginpage = ({ aktifLG, klikL, aktifSG, klikS, klikLG, login }) => {
+const Loginpage = ({ aktifLG, klikL, aktifSG, klikS, klikLG, setdataawal }) => {
   const navigate = useNavigate();
   const [alertId, setAlertId] = useState("");
   const [username, setUserName] = useState("");
@@ -27,38 +27,55 @@ const Loginpage = ({ aktifLG, klikL, aktifSG, klikS, klikLG, login }) => {
   }, [alert]);
 
   axios.defaults.withCredentials = true;
+  async function fetchData() {
+    await axios
+      .get("https://catetinnote.herokuapp.com/note", {
+        params: {
+          user: username,
+        },
+      })
+      .then((res) => {
+        setdataawal(res.data);
+      });
+  }
 
+  async function profile() {
+    await axios
+      .get("https://catetinnote.herokuapp.com/profile")
+      .then((response) => {
+        if (response.data.loggedIn === true) {
+          klikL();
+          klikLG();
+          navigate(`/note/${response.data.username}`);
+        }
+      });
+  }
+
+  async function loginreq() {
+    await axios
+      .post("https://catetinnote.herokuapp.com/login", {
+        username: username,
+        password: password,
+      })
+      .then((response) => {
+        if (response.data.alert === 2) {
+          setAlertId("success");
+          profile();
+          fetchData();
+        } else if (response.data.alert === 3) {
+          setAlertId("error");
+        }
+        setAlertContent(response.data.message);
+        setAlert(true);
+        setOpen(true);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  }
   const submit = () => {
     if (username && password !== "") {
-      axios
-        .post("https://catetinnote.herokuapp.com/login", {
-          username: username,
-          password: password,
-        })
-        .then((response) => {
-          if (response.data.alert === 2) {
-            setAlertId("success");
-            setTimeout(() => {
-              axios
-                .get("https://catetinnote.herokuapp.com/profile")
-                .then((response) => {
-                  if (response.data.loggedIn === true) {
-                    klikL();
-                    klikLG();
-                    navigate(`/note/${response.data.username}`);
-                  }
-                });
-            }, 2000);
-          } else if (response.data.alert === 3) {
-            setAlertId("error");
-          }
-          setAlertContent(response.data.message);
-          setAlert(true);
-          setOpen(true);
-        })
-        .catch((err) => {
-          console.log(err.response);
-        });
+      loginreq();
       setUserName("");
       setPassword("");
     } else {
@@ -131,6 +148,7 @@ const mapDispatchToProps = (dispatch) => {
     klikL: () => dispatch({ type: "ISAKTIFLG" }),
     klikS: () => dispatch({ type: "ISAKTIFSG" }),
     klikLG: () => dispatch({ type: "ISLOGIN" }),
+    setdataawal: (data) => dispatch({ type: "DATAAWAL", payload: data }),
   };
 };
 

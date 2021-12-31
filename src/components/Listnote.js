@@ -3,6 +3,7 @@ import Notelist from "./Notelist";
 import axios from "axios";
 import { connect } from "react-redux";
 import "../css/listnote.css";
+
 const Listnote = ({
   username,
   aktifN,
@@ -11,8 +12,10 @@ const Listnote = ({
   deleted,
   insert,
   update,
+  loadings,
+  dataawal,
 }) => {
-  const [dataNote, setDataNote] = useState([]);
+  const [dataNote, setDataNote] = useState(dataawal);
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(
@@ -23,15 +26,14 @@ const Listnote = ({
           },
         }
       );
-      console.log(request.data);
       setDataNote(request.data);
+      loading();
       return request.data;
     }
-    loading();
     fetchData();
   }, [loading, username, aktifN, edit, deleted, insert, update]);
 
-  if (dataNote.length === 0) {
+  if (dataNote.length === 0 && loadings === false) {
     return (
       <div className="listnote">
         <p>Belum ada note...</p>
@@ -66,12 +68,14 @@ const mapStateToProps = (state) => {
     klik: state.aktifN,
     insert: state.insert,
     update: state.update,
+    loadings: state.loading,
+    dataawal: state.dataawal,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loading: () => dispatch({ type: "ISLOAD" }),
+    loading: () => dispatch({ type: "ISLOADING" }),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Listnote);

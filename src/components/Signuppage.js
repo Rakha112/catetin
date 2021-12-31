@@ -23,27 +23,29 @@ const Loginpage = ({ aktifLG, klikL, aktifSG, klikS }) => {
   }, [alert]);
 
   axios.defaults.withCredentials = true;
-
+  async function profile() {
+    await axios
+      .post("https://catetinnote.herokuapp.com/signup", {
+        username: username,
+        password: password,
+      })
+      .then((response) => {
+        if (response.data.alert === 2) {
+          setAlertId("success");
+          setTimeout(() => {
+            klikS();
+          }, 2000);
+        } else if (response.data.alert === 3) {
+          setAlertId("error");
+        }
+        setAlertContent(response.data.message);
+        setAlert(true);
+        setOpen(true);
+      });
+  }
   const submit = () => {
     if (username && password !== "") {
-      axios
-        .post("https://catetinnote.herokuapp.com/signup", {
-          username: username,
-          password: password,
-        })
-        .then((response) => {
-          if (response.data.alert === 2) {
-            setAlertId("success");
-            setTimeout(() => {
-              klikS();
-            }, 2000);
-          } else if (response.data.alert === 3) {
-            setAlertId("error");
-          }
-          setAlertContent(response.data.message);
-          setAlert(true);
-          setOpen(true);
-        });
+      profile();
       setUserName("");
       setPassword("");
     } else {
