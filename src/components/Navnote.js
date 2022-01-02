@@ -10,15 +10,17 @@ const Navnote = ({ user }) => {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   const submit = () => {
-    axios.get("https://catetinnote.herokuapp.com/logout").then((response) => {
-      if (response.data.logout === true) {
-        navigate("/");
-      }
-    });
+    async function logout() {
+      axios.get("https://catetinnote.herokuapp.com/logout").then((response) => {
+        if (response.data.logout === true) {
+          navigate("/");
+        }
+      });
+    }
+    logout();
   };
   const klik = () => {
-    let unmounted = false;
-    if (!unmounted) {
+    async function profile() {
       axios
         .get("https://catetinnote.herokuapp.com/profile")
         .then((response) => {
@@ -30,9 +32,7 @@ const Navnote = ({ user }) => {
           }
         });
     }
-    return () => {
-      unmounted = true;
-    };
+    profile();
   };
   const out = () => {
     setAktifOut(!aktifOut);
