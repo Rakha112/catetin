@@ -8,6 +8,7 @@ import Savebtn from "./Btn";
 const Navnote = ({ user }) => {
   const [aktifOut, setAktifOut] = useState(false);
   const navigate = useNavigate();
+  axios.defaults.withCredentials = true;
   const submit = () => {
     axios.get("https://catetinnote.herokuapp.com/logout").then((response) => {
       if (response.data.logout === true) {

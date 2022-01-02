@@ -16,6 +16,7 @@ const Listnote = ({
   dataawal,
 }) => {
   const [dataNote, setDataNote] = useState(dataawal);
+  axios.defaults.withCredentials = true;
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(
