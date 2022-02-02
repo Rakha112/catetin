@@ -13,7 +13,7 @@
 
 .shownote.aktif {
   display: flex;
-  opacity: 100%;
+  opacity: 1;
   visibility: visible;
   position: absolute;
   width: 100vw;
@@ -23,7 +23,7 @@
   .showbox {
     display: flex;
     flex-direction: column;
-    opacity: 100%;
+    opacity: 1;
     visibility: visible;
     border-radius: 20px;
     width: 322px;

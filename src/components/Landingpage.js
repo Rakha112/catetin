@@ -12,6 +12,7 @@ import axios from "axios";
 import { gsap, Power3 } from "gsap";
 
 const Landingpage = ({ aktifLG, aktifSG }) => {
+  let width = window.innerWidth;
   let h1 = useRef(null);
   let p = useRef(null);
   let tombol = useRef(null);
@@ -32,27 +33,34 @@ const Landingpage = ({ aktifLG, aktifSG }) => {
   }, [navigate]);
 
   useEffect(() => {
-    gsap.to(h1, { duration: 1.5, opacity: 1, y: -40, ease: Power3.easeOut });
+    console.log(width);
+    gsap.to(h1, {
+      duration: 1.5,
+      opacity: 1,
+      y: -40,
+      ease: Power3.easeOut,
+      delay: width > 1020 ? 0 : 0.2,
+    });
     gsap.to(p, {
       duration: 1.5,
       opacity: 1,
       y: -40,
       ease: Power3.easeOut,
-      delay: 0.2,
+      delay: width > 1020 ? 0.2 : 0.4,
     });
     gsap.to(tombol, {
       duration: 1.5,
       opacity: 1,
       y: -40,
       ease: Power3.easeOut,
-      delay: 0.4,
+      delay: width > 1020 ? 0.4 : 0.6,
     });
     gsap.to(illustrasi, {
       duration: 1.5,
       opacity: 1,
       y: -40,
       ease: Power3.easeOut,
-      delay: 0.6,
+      delay: width > 1020 ? 0.6 : 0,
     });
   }, []);
 
