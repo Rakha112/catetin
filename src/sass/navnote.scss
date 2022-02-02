@@ -1,9 +1,19 @@
 .navnote {
+  height: 5rem;
+  background-color: white;
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 40px;
+  position: fixed;
+  padding: 0 40px;
+  top: 40px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  @media screen and (min-width: 1020px) {
+    max-width: 1380px;
+  }
   .logo {
     cursor: pointer;
     img {
@@ -31,6 +41,7 @@
     }
     img {
       width: 25px;
+      margin-right: 0.5rem;
     }
     .logout {
       opacity: 0;
@@ -55,15 +66,8 @@
       left: 50%;
       transform: translate(-50%, -50%);
       @media screen and (min-width: 1020px) {
-        width: 100%;
         background-color: unset;
-        opacity: 1;
-        visibility: visible;
-        display: flex;
-        position: fixed;
         top: 55px;
-        left: 50%;
-        transform: translate(-50%, -50%);
       }
       .savebtn {
         margin-bottom: 1rem;

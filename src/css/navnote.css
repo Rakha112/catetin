@@ -1,4 +1,6 @@
 .navnote {
+  height: 5rem;
+  background-color: white;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9,7 +11,19 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 40px;
+  position: fixed;
+  padding: 0 40px;
+  top: 40px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+@media screen and (min-width: 1020px) {
+  .navnote {
+    max-width: 1380px;
+  }
 }
 
 .navnote .logo {
@@ -57,6 +71,7 @@
 
 .navnote .user img {
   width: 25px;
+  margin-right: 0.5rem;
 }
 
 .navnote .user .logout {
@@ -95,18 +110,8 @@
 
 @media screen and (min-width: 1020px) {
   .navnote .user .logout.aktif {
-    width: 100%;
     background-color: unset;
-    opacity: 1;
-    visibility: visible;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    position: fixed;
     top: 55px;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
   }
 }
 
