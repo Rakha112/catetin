@@ -25,7 +25,7 @@ const Loginpage = ({ aktifLG, klikL, aktifSG, klikS }) => {
   axios.defaults.withCredentials = true;
   async function profile() {
     await axios
-      .post("https://catetinnote.herokuapp.com/signup", {
+      .post("https://apicatetin.rakhawibowo.my.id/signup", {
         username: username,
         password: password,
       })

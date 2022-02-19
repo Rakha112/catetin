@@ -21,7 +21,7 @@ const Note = ({ klik, aktifLG, aktifN, klikN, load, show }) => {
   useEffect(() => {
     async function profile() {
       await axios
-        .get("https://catetinnote.herokuapp.com/profile")
+        .get("https://apicatetin.rakhawibowo.my.id/profile")
         .then((response) => {
           if (response.data.loggedIn === true) {
             navigate(`/note/${response.data.username}`);

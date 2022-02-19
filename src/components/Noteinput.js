@@ -14,7 +14,7 @@ const NoteInput = ({ aktifN, klikN, user, insert }) => {
   axios.defaults.withCredentials = true;
   async function insertData() {
     await axios
-      .post("https://catetinnote.herokuapp.com/note/insert", {
+      .post("https://apicatetin.rakhawibowo.my.id/note/insert", {
         judul: judul,
         isi: isi,
         user: user,

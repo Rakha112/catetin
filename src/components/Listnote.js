@@ -20,7 +20,7 @@ const Listnote = ({
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(
-        "https://catetinnote.herokuapp.com/note",
+        "https://apicatetin.rakhawibowo.my.id/note",
         {
           params: {
             user: username,

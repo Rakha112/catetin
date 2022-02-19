@@ -26,7 +26,7 @@ const Shownote = ({
   useEffect(() => {
     async function getIsiData() {
       await axios
-        .get("https://catetinnote.herokuapp.com/note/isi", {
+        .get("https://apicatetin.rakhawibowo.my.id/note/isi", {
           params: {
             user: user,
             judul: judul.judul,
@@ -45,7 +45,7 @@ const Shownote = ({
   const saveFunc = () => {
     async function updateData() {
       await axios
-        .put("https://catetinnote.herokuapp.com/note/update", {
+        .put("https://apicatetin.rakhawibowo.my.id/note/update", {
           judul: judul.judul,
           isi: editIsi,
           user: user,
@@ -65,7 +65,7 @@ const Shownote = ({
   const deleteFunc = () => {
     async function deleteData() {
       await axios
-        .delete("https://catetinnote.herokuapp.com/note/delete", {
+        .delete("https://apicatetin.rakhawibowo.my.id/note/delete", {
           data: {
             judul: judul.judul,
             isi: editIsi,

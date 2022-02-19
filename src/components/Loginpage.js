@@ -29,7 +29,7 @@ const Loginpage = ({ aktifLG, klikL, aktifSG, klikS, klikLG, setdataawal }) => {
   axios.defaults.withCredentials = true;
   async function fetchData() {
     await axios
-      .get("https://catetinnote.herokuapp.com/note", {
+      .get("https://apicatetin.rakhawibowo.my.id/note", {
         params: {
           user: username,
         },
@@ -41,7 +41,7 @@ const Loginpage = ({ aktifLG, klikL, aktifSG, klikS, klikLG, setdataawal }) => {
 
   async function profile() {
     await axios
-      .get("https://catetinnote.herokuapp.com/profile")
+      .get("https://apicatetin.rakhawibowo.my.id/profile")
       .then((response) => {
         if (response.data.loggedIn === true) {
           klikL();
@@ -53,7 +53,7 @@ const Loginpage = ({ aktifLG, klikL, aktifSG, klikS, klikLG, setdataawal }) => {
 
   async function loginreq() {
     await axios
-      .post("https://catetinnote.herokuapp.com/login", {
+      .post("https://apicatetin.rakhawibowo.my.id/login", {
         username: username,
         password: password,
       })

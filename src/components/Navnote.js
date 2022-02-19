@@ -13,18 +13,20 @@ const Navnote = ({ user }) => {
   axios.defaults.withCredentials = true;
   const submit = () => {
     async function logout() {
-      axios.get("https://catetinnote.herokuapp.com/logout").then((response) => {
-        if (response.data.logout === true) {
-          navigate("/");
-        }
-      });
+      axios
+        .get("https://apicatetin.rakhawibowo.my.id/logout")
+        .then((response) => {
+          if (response.data.logout === true) {
+            navigate("/");
+          }
+        });
     }
     logout();
   };
   const klik = () => {
     async function profile() {
       axios
-        .get("https://catetinnote.herokuapp.com/profile")
+        .get("https://apicatetin.rakhawibowo.my.id/profile")
         .then((response) => {
           if (response.data.loggedIn === true) {
             navigate(`/note/${response.data.username}`);

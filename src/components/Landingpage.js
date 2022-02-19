@@ -22,7 +22,7 @@ const Landingpage = ({ aktifLG, aktifSG }) => {
   useEffect(() => {
     async function profile() {
       await axios
-        .get("https://catetinnote.herokuapp.com/profile")
+        .get("https://apicatetin.rakhawibowo.my.id/profile")
         .then((response) => {
           if (response.data.loggedIn === true) {
             navigate(`note/${response.data.username}`);
@@ -33,7 +33,6 @@ const Landingpage = ({ aktifLG, aktifSG }) => {
   }, [navigate]);
 
   useEffect(() => {
-    console.log(width);
     gsap.to(h1, {
       duration: 1.5,
       opacity: 1,
